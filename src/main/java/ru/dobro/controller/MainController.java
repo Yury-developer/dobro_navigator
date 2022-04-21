@@ -1,56 +1,53 @@
-package ru.dobro;
+package ru.dobro.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.dobro.domain.Message;
 import ru.dobro.repos.MessageRepo;
 
-import java.util.List;
+import java.time.LocalDateTime;
 import java.util.Map;
 
+
 @Controller
-public class GreetingController {
+public class MainController {
     @Autowired
     private MessageRepo messageRepo;
 
-    @GetMapping("/greeting")
-    public String greeting(
-            @RequestParam(name="name", required=false, defaultValue="World") String name,
-            Map<String, Object> model
-    ) {
-        model.put("name", name);
+    @GetMapping("/")   // теперь делаем ее корнем
+    public String greeting(Map<String, Object> model) {
+        String message = "Current date and time: " + LocalDateTime.now().toString();
+        model.put("message", message);
         return "greeting";
     }
-    /*
-    name="name" -имя
-    required=false   -обязательное ли это поле
-    defaultValue="World"   -дефолтное значение
-    Ниже приведем сокращенную форму.
-     */
 
 
 
-    @GetMapping   // при входе на localhost мы сразу будем получать результат эту страничку
+    @GetMapping("/main")   // теперь запэпим на   main
     public String main(Map<String, Object> model) {
         Iterable<Message> messages = messageRepo.findAll();
 
         model.put("messages", messages);
+
         return "main";
     }
 
 
 
-    @PostMapping   // форма будет отправляться на тот же адрес, с которого пришла сама страничка, поэтому mapping не указываем
+    @PostMapping("/main")   // теперь запэпим на   main
     public String add(@RequestParam String text, @RequestParam String tag, Map<String, Object> model) {
         Message message = new Message(text, tag);
+
         messageRepo.save(message);   // сохранили.
 
         Iterable<Message> messages = messageRepo.findAll();
+
         model.put("messages", messages);   // взяли из репозитория и отдем пользователю.
+
+//        model.put("name_of_user", "привет из контроллера");
 
         return "main";
     }
@@ -76,5 +73,9 @@ public class GreetingController {
 
         return "main";
     }
+    /*
+    Чтобы хранить пользователя в базе. Для этого добавим в базу новый объект   user
+    и доп. объект, кот. не будет напрямую храниться в  DB   - это роль   Role .
+     */
 
 }

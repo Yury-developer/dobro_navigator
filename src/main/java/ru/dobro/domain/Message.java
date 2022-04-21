@@ -9,7 +9,7 @@ import javax.persistence.Id;
 @Entity // это не просто кусок кода, а сущность, которую необходимо будет сохранять в DB
 public class Message {
     @Id   // поле   id   будет идентификатором
-    @GeneratedValue(strategy=GenerationType.AUTO)   // Spring совместно с DB обязаны разобраться, как будет генерироваться id
+    @GeneratedValue(strategy = GenerationType.AUTO)   // Spring совместно с DB обязаны разобраться, как будет генерироваться id
     private Integer id;
 
     private String text;
