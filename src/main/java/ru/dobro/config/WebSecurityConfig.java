@@ -10,12 +10,12 @@ import javax.sql.DataSource;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+//import org.springframework.security.authentication.AuthenticationManager;
+//import org.springframework.context.annotation.Bean;
+//import org.springframework.security.core.userdetails.User;
+//import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.userdetails.UserDetailsService;
+//import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 
 
@@ -67,7 +67,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
-                .dataSource(dataSource)
+                .dataSource(dataSource)   // генерируется Spring. Нужен для того, чтобы Manager мог ходить в DB и искать там пользователей и их роли.
                 .passwordEncoder(NoOpPasswordEncoder.getInstance())   // будет шифровать парол, чтобы они не хранилиь у нас в явном виде (NoOpPasswordEncoder только для тестирования, жудко устарел)
                 .usersByUsernameQuery("select username, password, active from usr where username=?")   // этот запрос необходим, чтобы система могла найти пользователя по его имени. Именно в таком порядке. Порядок и набор определены системой.
                 .authoritiesByUsernameQuery("select u.username, ur.roles from usr u inner join user_role ur on u.id = ur.user_id where u.username=?");   // этот запрос помогает спрингу получить список пользователей с их ролями. Поясняю запрос:   из таблицы 'usr' и присоединенной к ней таблицы 'user_role', соединенных через поля 'user_id' и 'id' выбираем поля 'username' и имя роли 'roles'

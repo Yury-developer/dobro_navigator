@@ -16,10 +16,8 @@ public class User {
     private boolean active;
 
     // у пользователей будет ролевая система, т.е. админ и превелигированный.
-    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
-    // fetch определяет, как данные значения будут подгружаться относительно основной сущности. ЖАДНЫЙ - это Hibernate при запросе пользователя будет подгружать все его роли. ЛЕНИВЫЙ - он подгрузит роли только когла пользователь обратится к этомку полю.
-    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
-    // данное поле будет храниться в отдельной таблице,  для которой мы не описывали mapping. это позволяет нам создать табличку для   user_role   набора ролей, кот. будет соединяться с текущей табл. через   user_id
+    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)   // fetch определяет, как данные значения будут подгружаться относительно основной сущности. ЖАДНЫЙ - это Hibernate при запросе пользователя будет подгружать все его роли. ЛЕНИВЫЙ - он подгрузит роли только когла пользователь обратится к этомку полю.
+    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))   // данное поле будет храниться в отдельной таблице,  для которой мы не описывали mapping. это позволяет нам создать табличку для   user_role   набора ролей, кот. будет соединяться с текущей табл. через   user_id
     @Enumerated(EnumType.STRING)   // Этот Enum мы хотим хранить в виде строки.
     private Set<Role> roles;
 
