@@ -5,9 +5,14 @@ Spring Boot learning
 
 ---
 
-[Spring Boot Security: добавляем регистрацию и авторизацию пользователей в приложение (простой сайт)](https://youtu.be/WDlifgLS8iQ)
+[Spring Boot Jpa (Hibernate): добавляем связи между таблицами базы данных (one to many)](https://youtu.be/PpoOoR55Ypw)
 
-[Ссылка на git репозиторий из видео](https://github.com/drucoder/sweater/tree/SpringSecurity)
+[Ссылка на git репозиторий из видео](https://github.com/drucoder/sweater/tree/OneToManyMapping)
+
+
+
+
+
 
 [гайд на сайте Spring](https://spring.io/guides/gs/securing-web/)
 
@@ -26,6 +31,13 @@ Spring Boot learning
 [Зависимость для Postgres](https://gist.github.com/drucoder/17424174aa6c6ae3338632bcedcac859)
 
 
+Spring Boot Web Application (MVC): Добавляем связь между таблицами БД: при создании сообщений мы указываем автора этого сообщения. Также мы рассматриваем, как можно получить текущего пользователя в контроллере.
+
+Для получения этого результата мы добавляем сервис, реализующий интерфейс UserDetailsService, содержащий только один метод: получение пользователя по его имени. Ровно такой метод уже реализован у нас в репозитории UserRepo, соответственно мы переиспользуем этот репозиторий.
+
+Далее нам необходимо расширить наш класс User интерфейсом UserDetails, т.к. именно его возвращает созданный нами сервис. Также в рамках изменений в логике нашего приложения enum Role должен реализовывать интерфейс GrantedAuthority.
+
+После этого убираем лишние настройки в WebSecurityConfig, заменяя их на нашу реализацию UserDetailsService и модифицируем шаблоны страниц.
 
 
 ---
