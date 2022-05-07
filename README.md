@@ -5,9 +5,9 @@ Spring Boot learning
 
 ---
 
-[Spring Boot Jpa (Hibernate): добавляем связи между таблицами базы данных (one to many)](https://youtu.be/PpoOoR55Ypw)
+[Spring Boot Freemarker: подключаем шаблонизатор Freemarker](https://youtu.be/8MlXahJXLFg)
 
-[Ссылка на git репозиторий из видео](https://github.com/drucoder/sweater/tree/OneToManyMapping)
+[Ссылка на git репозиторий из видео](https://github.com/drucoder/sweater/tree/Freemarker)
 
 
 
