@@ -28,8 +28,6 @@ public class RegistrationController {
         // далее, для того, чтобы найти пользователя нам надо создать новый репозиторий  'UserRepo'
         User userFromDb = userRepo.findByUsername(user.getUsername());
 
-        System.out.println(userFromDb);
-
         if (userFromDb != null) {
             model.put("message", "User exists! -такой пользователь уже существует!");
             return "registration";   // возвращаем страничку с регистрацией.
