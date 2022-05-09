@@ -20,4 +20,9 @@
         <button type="submit">Save</button>
     </form>
 
+    <br><br>
+    <form action="/user/remove/${user.id}">
+        <button type="submit">Delete this user</button>
+        <input type="hidden" value="${_csrf.token}" name="_csrf">
+    </form>
 </@c.page>

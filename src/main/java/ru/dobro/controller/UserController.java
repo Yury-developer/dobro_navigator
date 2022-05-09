@@ -11,8 +11,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import ru.dobro.beans.Message;
 import ru.dobro.beans.Role;
 import ru.dobro.beans.User;
+import ru.dobro.repos.MessageRepo;
 import ru.dobro.repos.UserRepo;
 
 @Controller
@@ -21,6 +23,8 @@ import ru.dobro.repos.UserRepo;
 public class UserController {
     @Autowired
     private UserRepo userRepo;
+    @Autowired // я дописываю, чтобы реализовать метод удаления пользователя
+    private MessageRepo messageRepo;
 
 
     @GetMapping   // не подписываем mapping, он уже будет содержать в своем пути "/user"
@@ -67,5 +71,20 @@ public class UserController {
 
         return "redirect:/user";
     }
+
+
+
+    // Mapping для удаления для пользователя
+    @GetMapping("/remove/{user}")
+    public String userDelete(@PathVariable User user, Model model) {
+
+        Iterable<Message> deleteMessage = messageRepo.findByAuthor(user);
+        messageRepo.deleteAll(deleteMessage);
+
+        user.getRoles().clear();
+        userRepo.delete(user);
+        return "redirect:/user";
+    }
+
 
 }

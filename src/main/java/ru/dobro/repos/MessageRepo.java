@@ -2,6 +2,7 @@ package ru.dobro.repos;
 
 import ru.dobro.beans.Message;
 import org.springframework.data.repository.CrudRepository;
+import ru.dobro.beans.User;
 
 import java.util.List;
 
@@ -11,5 +12,7 @@ public interface MessageRepo extends CrudRepository<Message, Long> {
 
     // для поиска в 'DB' по тэгу
     List<Message> findByTag(String tag);
+
+    List<Message> findByAuthor(User user); // это моё художество
 
 }
