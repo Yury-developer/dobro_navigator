@@ -8,7 +8,10 @@
     <div>
         <@l.logout />
         <#--Вставим макрос разлогинивания-->
-        <br>
+
+        <br><br>
+        <span><a href="/user">User list</a></span>
+        <br><br><br>
     </div>
 
     <div>

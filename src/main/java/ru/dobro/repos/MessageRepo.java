@@ -1,6 +1,6 @@
 package ru.dobro.repos;
 
-import ru.dobro.domain.Message;
+import ru.dobro.beans.Message;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

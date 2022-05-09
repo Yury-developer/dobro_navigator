@@ -1,4 +1,4 @@
-package ru.dobro.domain;
+package ru.dobro.beans;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

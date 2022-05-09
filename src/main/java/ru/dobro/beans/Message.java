@@ -1,4 +1,4 @@
-package ru.dobro.domain;
+package ru.dobro.beans;
 
 import javax.persistence.*;
 

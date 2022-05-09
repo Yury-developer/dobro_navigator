@@ -7,11 +7,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.dobro.domain.Message;
-import ru.dobro.domain.User;
+import ru.dobro.beans.Message;
+import ru.dobro.beans.User;
 import ru.dobro.repos.MessageRepo;
 
-import java.time.LocalDateTime;
 import java.util.Map;
 
 

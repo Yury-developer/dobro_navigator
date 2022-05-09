@@ -1,9 +1,9 @@
-package ru.dobro.domain;
+package ru.dobro.beans;
 
 import org.springframework.security.core.GrantedAuthority;
 
 public enum Role implements GrantedAuthority {
-    USER;
+    USER, ADMIN;
 
     @Override
     public String getAuthority() {

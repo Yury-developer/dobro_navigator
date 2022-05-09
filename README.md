@@ -5,7 +5,7 @@ Spring Boot learning
 
 ---
 
-[Spring Boot Freemarker: подключаем шаблонизатор Freemarker](https://youtu.be/8MlXahJXLFg)
+[Spring Boot Security: добавляем панель администратора и роли пользователей, ограничиваем доступ](https://youtu.be/6dteOGWy4uk)
 
 [Ссылка на git репозиторий из видео](https://github.com/drucoder/sweater/tree/Freemarker)
 
