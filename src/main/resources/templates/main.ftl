@@ -2,9 +2,13 @@
 <#import "parts/login.ftl" as l>
 
 <@c.page>
+
+        <h2>Main page</h2><br><br><br>
+
     <div>
         <@l.logout />
         <#--Вставим макрос разлогинивания-->
+        <br>
     </div>
 
     <div>
@@ -18,16 +22,16 @@
         </form>
     </div>
 
-    <br><br><br>
-    <div>Список сообщений</div>
+    <br>
+    <div>Список сообщений по указанному ниже тэгу:</div>
 
     <form method="get" action="/main">
-        <input type="text" name="filter" value=${filter!}>   <#--Добавим значение 'value="${filter}"', которое удем выплевывать в страничку -->
+        <input type="text" name="filter" value="${filter!}">   <#--Добавим значение 'value="${filter}"', которое удем выплевывать в страничку -->
         <button type="submit">Найти</button>
         <#--csrf токен (value="${_csrf.token}") отсюда убираем, т.к. он нужен только для pos - запросов. Здесь он нам не нужен.-->
     </form>
 
-    <br><br><br>
+    <br>
     <!-- отобразим список сообщений-->
     <#--Синтаксис обхода списка во 'freemarker' выглядит так:-->
     <#--'list messages' - это коллекция, которую мы обходим, 'message' - элиас для одного экземпляра-->

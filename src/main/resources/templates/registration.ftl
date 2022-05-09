@@ -3,9 +3,11 @@
 
 <@c.page>
 
-    <h2>Add_new_user</h2><br><br><br>
+    <h2>Registration page</h2><br>
+    <h3>Add_new_user</h3><br><br><br>
 
-    ${message!" " }
-        <@l.login "/registration" />
+    ${message!}
+    <@l.login "/registration" />
+    <a href="/main">Main page</a>
 
 </@c.page>
