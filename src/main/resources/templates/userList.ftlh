@@ -3,7 +3,8 @@
 <@c.page>
     <h2>User List page</h2><br><br>
     <span><a href="/main">go to   Main page</a></span>
-    <br><br><br>
+    <br><br>
+    <span><a href="/registration">Add new user</a</span><br><br>
 
     <h3>List of users:</h3>
 

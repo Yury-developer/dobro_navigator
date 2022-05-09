@@ -21,8 +21,14 @@
     </form>
 
     <br><br>
+    <form action="/user/remove/" method="post">
     <form action="/user/remove/${user.id}">
-        <button type="submit">Delete this user</button>
+        <input type="hidden" value="${user.id}" name="userId">
         <input type="hidden" value="${_csrf.token}" name="_csrf">
+        <button type="submit">Delete this user</button>
     </form>
+    <#--<form action="/user/remove/${user.id}">-->
+        <#--<button type="submit">Delete this user</button>-->
+        <#--<input type="hidden" value="${_csrf.token}" name="_csrf">-->
+    <#--</form>-->
 </@c.page>

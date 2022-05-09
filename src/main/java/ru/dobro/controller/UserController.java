@@ -75,8 +75,10 @@ public class UserController {
 
 
     // Mapping для удаления для пользователя
-    @GetMapping("/remove/{user}")
-    public String userDelete(@PathVariable User user, Model model) {
+    @PostMapping("/remove")
+    public String userDelete(
+                             @RequestParam Map<String, String> form,   // Будет приходить из формы каждый раз разное количество полей, поэтому используем Map
+                             @RequestParam("userId") User user) {
 
         Iterable<Message> deleteMessage = messageRepo.findByAuthor(user);
         messageRepo.deleteAll(deleteMessage);
