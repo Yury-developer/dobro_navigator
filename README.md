@@ -5,13 +5,23 @@ Spring Boot learning
 
 ---
 
-[Spring Boot Jpa (Hibernate): добавляем связи между таблицами базы данных (one to many)](https://youtu.be/PpoOoR55Ypw)
+[Spring Boot Freemarker: подключаем шаблонизатор Freemarker](https://youtu.be/8MlXahJXLFg)
 
-[Ссылка на git репозиторий из видео](https://github.com/drucoder/sweater/tree/OneToManyMapping)
-
-
+[Ссылка на git репозиторий из видео](https://github.com/drucoder/sweater/tree/Freemarker)
 
 
+---
+
+[Для начала необходимо заменить зависимости в pom файле с mustache на Freemarker:](https://gist.github.com/drucoder/e301ed54f19628e3456b85977b0afac1)
+[и изменить свойство, отвечающее за помещение _csrf токенов в контекст шаблонизатора,  в фале application.properties:](https://gist.github.com/drucoder/ff6a4179f1982f48cdfa6c48d3be6289)
+[Руководство по Freemarker:](https://freemarker.apache.org/docs/dgui.html)
+[Страница с описанием директивы list:](https://freemarker.apache.org/docs/ref_directive_list.html)
+[Страница с инструкцией по описанию собственных директив:](https://freemarker.apache.org/docs/dgui_misc_userdefdir.html)
+[Страница с объяснением по импортам и пространствам имен:](https://freemarker.apache.org/docs/dgui_misc_namespace.html)
+
+
+
+---
 
 
 [гайд на сайте Spring](https://spring.io/guides/gs/securing-web/)
