@@ -7,6 +7,6 @@
         <h2>Greeting page</h2><br><br><br>
 
         <div>Hello, guest!</div>
-        <a href="/main">Main page</a>
+        <a href="/main">go to   Main page</a>
 
 </@c.page>

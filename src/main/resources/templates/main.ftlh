@@ -49,4 +49,9 @@
         No message
     </#list>
 
+    <br>
+    <span><a href="/map">go to   printAllShops</a></span>
+    <br><br>
+    <span><a href="/map/useful_links">Полезные ссылки</a></span>
+    <br>
 </@c.page>
